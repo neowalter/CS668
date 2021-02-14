@@ -1,0 +1,4 @@
+02-12 14:16 - DEBUG - MainThread - This message should go to the log file
+02-12 14:16 - INFO - MainThread - So should this
+02-12 14:16 - WARNING - MainThread - And this, too
+02-12 14:16 - ERROR - MainThread - And non-ASCII stuff, too, like Øresund and Malmö
