@@ -11,28 +11,34 @@
 # print("Used: %d GiB" % (used // (2**30)))
 # print("Free: %d GiB" % (free // (2**30)))
 
+# get excution time
+# import timeit
+# print(timeit.timeit('def()', globals=globals()))
 
+
+
+# get drives size
 import wmi
 c = wmi.WMI ()
 obj = c.Win32_OperatingSystem()[0]
 print(obj.MUILanguages)
 for d in c.Win32_LogicalDisk():
     print(d.Caption, d.FreeSpace, d.Size, d.DriveType)
-
-
-w = wmi.WMI()
-disk = w.Win32_DiskDrive()[0]
-
-print("硬盘制造商Manufacturer",disk.Manufacturer)
-print("硬盘型号", disk.Model)
-print("硬盘sn", disk.SerialNumber)
-print("硬盘大小", int(disk.Size) / (1024 * 1024 * 1024))
-print(disk.Description)
-print(disk.DeviceID)
-print(disk.Name)
-
-for disk in c.Win32_LogicalDisk (DriveType=3):
-  print disk.Caption, "%0.2f%% free" % (100.0 * long (disk.FreeSpace) / long (disk.Size))
+#
+#
+# w = wmi.WMI()
+# disk = w.Win32_DiskDrive()[0]
+#
+# print("硬盘制造商Manufacturer",disk.Manufacturer)
+# print("硬盘型号", disk.Model)
+# print("硬盘sn", disk.SerialNumber)
+# print("硬盘大小", int(disk.Size) / (1024 * 1024 * 1024))
+# print(disk.Description)
+# print(disk.DeviceID)
+# print(disk.Name)
+#
+# for disk in c.Win32_LogicalDisk (DriveType=3):
+#   print(disk.Caption, "%0.2f%% free" % (100.0 * int(disk.FreeSpace) / int(disk.Size)))
 
 # method
 # import os
@@ -44,6 +50,10 @@ for disk in c.Win32_LogicalDisk (DriveType=3):
 #        print(each_drive)
 #        valid_drives.append(each_drive+":\\")
 # print(valid_drives)
+
+
+# os.path.getsize(path）
+
 
 # method
 # import os
@@ -107,3 +117,26 @@ for disk in c.Win32_LogicalDisk (DriveType=3):
 #
 # if __name__ == '__main__':
 #     print (get_drives())
+
+# method to get the number of files and directories
+# drive = string.ascii_uppercase
+# valid_drives = []
+# for each_drive in drive:
+#     if os.path.exists(each_drive + ":\\"):
+#         path = each_drive + ":\\"
+#         print(path)
+#
+#         dirnum = 0
+#         filenum = 0
+#         # path = 'C:/Users/Dell/Desktop/test'
+#
+#         for lists in os.listdir(path):
+#             sub_path = os.path.join(path, lists)
+#             # print(sub_path)
+#             if os.path.isfile(sub_path):
+#                 filenum = filenum+1
+#             elif os.path.isdir(sub_path):
+#                 dirnum = dirnum+1
+#
+#         print('dirnum: ',dirnum)
+#         print('filenum: ',filenum)
